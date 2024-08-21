@@ -3,7 +3,7 @@ pipeline {
     
     tools {
         maven "MAVEN",
-        nodejs "NodeJS"
+        node "NodeJS"
     }
     
     stages {
@@ -15,7 +15,7 @@ pipeline {
                 sh "docker-compose --version"
             }
         }
-        
+
         stage{
             steps("Build Micro Service Project"){
                 dir("./backend/eureka-server"){
