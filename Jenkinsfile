@@ -16,7 +16,14 @@ pipeline {
             }
         }
 
+        stage{
+            steps("Build Micro Service Project"){
+                dir("./backend/eureka-server"){
+                bat "dir"    
+                }
+            }
+        }
         
-
+        
     }
 }
