@@ -35,6 +35,20 @@ pipeline {
                 }
             }    
         }
+
+        stage("run the docker containers"){
+            steps{
+                bat "docker-compose down"
+                bat "docker-compose up --build -d"       
+            }
+        }
+
+        stage("Check images and runnign containers"){
+            steps{
+                bat "docker images"
+                bat "docker ps"       
+            }
+        }
     }
         
 }
