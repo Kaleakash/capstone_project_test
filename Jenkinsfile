@@ -9,10 +9,10 @@ pipeline {
     stages {
         stage("version of software"){
             steps{
-                sh "java --version"
-                sh "mvn --version"
-                sh "docker --version"
-                sh "docker-compose --version"
+                bat "java --version"
+                bat "mvn --version"
+                bat "docker --version"
+                bat "docker-compose --version"
             }
         }
 
