@@ -15,6 +15,8 @@ pipeline {
                 bat "docker-compose --version"
                 bat "node --version"
                 bat "npm --version"
+                bat "npm install angular/cli@16.0.1"
+                bat "ng version"
             }
         }
         stage("Build Micro Service Project"){
@@ -29,6 +31,7 @@ pipeline {
             steps{
                 dir("./frontend/front-end-app/"){
                     bat "dir"  
+                    bat "npm install"
                     bat "ng build"  
                 }
             }    
