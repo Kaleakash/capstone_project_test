@@ -11,15 +11,17 @@ pipeline {
                 sh "mvn --version"
                 sh "docker --version"
                 sh "docker-compose --version"
-            }
         }
-        stage("Build Micro Service Project"){
-            dir("./backend/eureka-server"){
+        stage{
+            steps("Build Micro Service Project"){
+                dir("./backend/eureka-server"){
                 sh "pwd"    
+                }
             }
         }
-        stage("Build Front end project"){
-            dir("./frontend/front-end-app"){
+        stage{    
+            steps("Build Front end project"){
+                dir("./frontend/front-end-app"){
                 sh "pwd"    
             }
         }
