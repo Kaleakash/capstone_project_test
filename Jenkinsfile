@@ -1,9 +1,11 @@
 pipeline {
     agent any
-     tools {
+    
+    tools {
         maven "MAVEN",
         nodejs "NodeJS"
     }
+    
     stages {
         stage("version of software"){
             steps{
@@ -11,6 +13,7 @@ pipeline {
                 sh "mvn --version"
                 sh "docker --version"
                 sh "docker-compose --version"
+            }
         }
         stage{
             steps("Build Micro Service Project"){
