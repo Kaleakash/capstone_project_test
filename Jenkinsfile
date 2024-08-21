@@ -15,8 +15,6 @@ pipeline {
                 bat "docker-compose --version"
                 bat "node version"
                 bat "npm version"
-                #bat "npm install angular/cli@16.0.1"
-                #bat "ng version"
             }
         }
         stage("Build Micro Service Project"){
