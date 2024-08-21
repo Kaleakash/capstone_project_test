@@ -15,6 +15,7 @@ pipeline {
                 sh "docker-compose --version"
             }
         }
+        
         stage{
             steps("Build Micro Service Project"){
                 dir("./backend/eureka-server"){
@@ -22,10 +23,12 @@ pipeline {
                 }
             }
         }
+        
         stage{    
             steps("Build Front end project"){
                 dir("./frontend/front-end-app"){
                 sh "pwd"    
+                }
             }
         }
         stage("run the docker containers"){
@@ -34,11 +37,13 @@ pipeline {
                 sh "docker-compose up --build -d"       
             }
         }
+        
         stage("Check images and runnign containers"){
             steps{
                 sh "docker images"
                 sh "docker ps"       
             }
         }
+
     }
 }
