@@ -13,12 +13,23 @@ pipeline {
                 bat "mvn --version"
                 bat "docker --version"
                 bat "docker-compose --version"
+                bat "npm install angular/cli@16.0.1"
+                bat "ng version"
             }
         }
         stage("Build Micro Service Project"){
             steps{
-                dir("./backend/eureka-server"){
-                    bat "dir"    
+                dir("./backend/micro-service-app"){
+                    bat "dir"  
+                    bat "mvn clean package"  
+                }
+            }    
+        }
+        stage("Build Front end project"){
+            steps{
+                dir("./frontend/front-end-app"){
+                    bat "dir"  
+                    bat "ng build"  
                 }
             }    
         }
