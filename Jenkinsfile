@@ -13,8 +13,8 @@ pipeline {
                 bat "mvn --version"
                 bat "docker --version"
                 bat "docker-compose --version"
-                bat "node version"
-                bat "npm version"
+                bat "node --version"
+                bat "npm --version"
             }
         }
         stage("Build Micro Service Project"){
