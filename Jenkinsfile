@@ -15,9 +15,6 @@ pipeline {
                 bat "docker-compose --version"
             }
         }
-    }
-    
-    stages{
         stage("Build Micro Service Project"){
             steps{
                 dir("./backend/eureka-server"){
