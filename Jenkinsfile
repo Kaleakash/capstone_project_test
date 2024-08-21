@@ -18,6 +18,14 @@ pipeline {
                 bat "ng version"
             }
         }
+        stage("Build Eureka Server"){
+            steps{
+                dir("./backend/eureka-server/eureka-server/"){
+                    bat "dir"  
+                    bat "mvn clean package"  
+                }
+            }    
+        }
         stage("Build Micro Service Project"){
             steps{
                 dir("./backend/micro-service-app/micro-service-app/"){
