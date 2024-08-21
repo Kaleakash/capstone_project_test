@@ -19,7 +19,7 @@ pipeline {
         }
         stage("Build Micro Service Project"){
             steps{
-                dir("./backend/micro-service-app"){
+                dir("./backend/micro-service-app/micro-service-app/"){
                     bat "dir"  
                     bat "mvn clean package"  
                 }
@@ -27,7 +27,7 @@ pipeline {
         }
         stage("Build Front end project"){
             steps{
-                dir("./frontend/front-end-app"){
+                dir("./frontend/front-end-app/"){
                     bat "dir"  
                     bat "ng build"  
                 }
