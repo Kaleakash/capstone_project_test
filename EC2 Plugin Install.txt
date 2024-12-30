@@ -1,0 +1,112 @@
+update ec2 instance 
+
+
+
+
+sudo yum -y update
+
+
+
+
+--------------->Git install 
+
+sudo yum install git -y
+
+install java 
+
+sudo yum install java-17
+
+
+
+------------------->Jenkin 
+
+Now, to download the latest Jenkins package
+
+
+Or 
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+sudo yum install Jenkins
+
+after installation we need to start the Jenkin 
+
+sudo service jenkins start		this command to start 
+
+sudo systemctl status Jenkins		this is use to check the status 
+					to exit that flow please type cntr + c twice 
+
+
+-----------------------> Node JS 
+
+
+install node 
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+or 
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+. ~/.nvm/nvm.sh
+
+nvm install node		(node version manager)
+or 
+nvm install --lts
+
+
+
+--------------Docker 
+
+install docker 
+
+sudo yum install docker
+
+sudo service docker start
+
+sudo docker info
+
+sudo docker images 
+
+
+
+---------------------------Docker-compose -------------
+
+
+Download the current stable release of Docker Compose
+
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+Give the permission 
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose version
+
+Now we will create the docker service and group and usermode 
+
+
+sudo groupadd docker
+
+sudo usermod -a -G docker ec2-user
+
+
+-----if you want to run docker and docker-compose in jenkin then please execute these command ---------------------
+
+sudo usermod -a -G docker jenkins 
+
+sudo usermod -a -G docker ec2-user 	(ec2-user is user name of instance )
+
+sudo chmod 777 /var/run/docker.sock
+
+
+sudo service jenkins restart
+
+
+------------------------------------------------>
+after install all required software in EC2 instance 
+clone git hub data from remote to EC2 instance machine. 
+
+https://github.com/Kaleakash/capstone_project_test.git
+
+create the Jenkin Pipe line job responsible to create the docker compose file 
